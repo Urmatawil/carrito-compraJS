@@ -13,5 +13,38 @@
     <script src="./js/index.js"></script>
     <title>Carrito</title>
   </head>
-  <body></body>
+  <body>
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <img
+          src="./img/logo.png"
+          class="logo"
+          alt="ecommerce tienda online urmatawil"
+        />
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+          </ul>
+          <div class="cart-container">
+            <button class="btn btn-secondary cart" type="button">
+              <img src="./img/cart.png" alt="Carrito" class="carrito" />
+            </button>
+            <div class="cart-products hidden"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--End NavBar-->
+
+    <!--ListProducts-->
+    <div class="container product-list">
+      <div class="row-products"></div>
+    </div>
+    <!--End ListProducts-->
+  </body>
 </html>
