@@ -4,41 +4,53 @@
     "name": "Tequeños 10 Unid.",
     "image": "./img/sandwich-nata.jpg",
     "extraInfo": "Incluye 1 salsa verde",
-    "price": 2000
+    "price": 2000,
+    "delivery": "Incluye delivery",
+    "relleno": "Queso blanco venezolano"
   },
   {
     "id": 2,
     "name": "Tequeños 20 Unid.",
     "image": "./img/cucuruchos-vainilla.jpg",
     "extraInfo": "Incluye 1 salsa verde",
-    "price": 4000
+    "price": 4000,
+    "delivery": "Incluye delivery",
+    "relleno": "Queso blanco venezolano"
   },
   {
     "id": 3,
     "name": "Tequeños 30 Unid.",
     "image": "./img/mini-surtido.jpg",
     "extraInfo": "Incluye 2 salsas verde",
-    "price": 6000
+    "price": 6000,
+    "delivery": "Incluye delivery",
+    "relleno": "Queso blanco venezolano"
   },
   {
     "id": 4,
     "name": "Tequeños 40 Unid.",
     "image": "./img/sandwich-doble.jpg",
     "extraInfo": "Incluye 2 salsas verde",
-    "price": 8000
+    "price": 8000,
+    "delivery": "Incluye delivery",
+    "relleno": "Queso blanco venezolano"
   },
   {
     "id": 5,
     "name": "Tequeños 50 Unid.",
     "image": "./img/fresa-hielo.jpg",
     "extraInfo": "Incluye 2 salsas verde",
-    "price": 10000
+    "price": 10000,
+    "delivery": "Incluye delivery",
+    "relleno": "Queso blanco venezolano"
   },
   {
     "id": 8,
     "name": "Tequeños 60 Unid.",
     "image": "./img/medio-coco-helado.jpg",
     "extraInfo": "Incluye 2 salsas verde",
-    "price": 12000
+    "price": 12000,
+    "delivery": "Incluye delivery",
+    "relleno": "Queso blanco venezolano"
   }
 ]

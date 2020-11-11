@@ -7,6 +7,7 @@
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -19,21 +20,26 @@
   <!--Header-->
   <header>
     <div class="mr-0 top-0 max-w-full">
-      <div class="bg-orange-700 h-16">      
+      <div class="bg-orange-600 h-16">      
         <nav class="flex items-center justify-between flex-wrap p-2 py-8 text-white">
         <div class="w-full flex items-center justify-center">
           <div class="absolute left-0 flex items-center">
             <style type="text/css">
               h1 {
-                font-family: 'Parisienne', cursive; }</style>
+                font-family: 'Parisienne', cursive; }
+              body{
+                font-family: 'Lato', sans-serif;
+              }</style>
             <h1 class="px-4 font-Caveat text-2xl md:text-3xl leading-tight">Delicias Arigato</h1>
           </div>
 
           <div class="absolute right-0 flex text-2xl">
-            <a class="xl:pr-16 sm:pr-10 pr-5 p-2" href="#" target="#"
+            <button class="xl:pr-16 sm:pr-10 pr-5 p-2" type="button" onclick="abrirCarrito()"
               ><i class="fas fa-shopping-cart text-white"></i
-            ></a>
+            ></button>
+            <div class="cart-products hidden w-full bg-white border h-24 absolute"></div>
           </div>  
+
         </div>
       </nav>
   </div>
@@ -41,7 +47,7 @@
       <div class="h-48">
         <img
           class="h-full w-full object-cover object-center overflow-hidden"
-          src="./img/medio-coco-helado.jpg"
+          src="./img/normal.jpg"
           alt=""
         />
       </div>
@@ -49,15 +55,12 @@
   </header>
   <!--SearchBar-->
   <body class="bg-gray-200">
-    <nav class="bg-orange-300 p-2 shadow">
+    <nav class="bg-orange-400 p-2 shadow">
     <div class="px-12 mb-4 sm:px-24 lg:px-32 xl:px-40 mx-auto">
         <div class="box mt-4">
           <div
             class="bg-white rounded-md flex items-center w-full p-4 shadow-sm border-none"
           >
-            <div class="absolute flex left-0 w-12 items-center">
-              <img src="./img/gato1.png" alt="gato" class="ml-1 sm:ml-6" />
-            </div>
             <input
               type="text"
               name=""
@@ -77,18 +80,14 @@
     </main>
     <!--footer-->
     <div class="Footer">
-        <div class="bottom-0 mt-8 w-full py-10 lg:py-20 bg-gray-700 flex justify-center items-center">
+      <hr class="mt-12">
+        <div class="flex mx-auto p-20 items-center justify-center">
+
           <script>
             let actualYear = new Date().getFullYear();
-            document.write('<div class="text-sm text-white">'+ actualYear + ' Delicias Arigato</div>');
+            document.write('<div class="text-sm">'+ actualYear + ' Delicias Arigato</div>');
           </script>
         </div>
-        <div class="flex justify-center items-center text-xl">
-              
-            <a class="block inline-block appearance-none text-opacity-50 px-3" href="https://twitter.com/Urm_At_Awil" target="_blank"><i class="fab fa-twitter"></i></a>
-
-            <a class="block inline-block appearance-none text-opacity-50 px-3" href="https://www.instagram.com/deliciasarigato/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      </div>
     </div>
     <script src="./js/index.js"></script>
   </body>
