@@ -22,7 +22,7 @@ async function cargarProductos() {
   productos.forEach((product) => {
     html += `
     <div
-      class="col-span-3 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center max-w-sm"
+      class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center max-w-sm"
     >
       <div class="bg-white rounded-md mt-8 py-4 px-4 hover:shadow-xl w-full">
         <img
@@ -30,7 +30,7 @@ async function cargarProductos() {
           class="w-64 rounded-md object-center mb-4 flex mx-auto"
           alt=""
         />
-          <span class="font-bold text-gray-800 text-lg">${product.name}</span>
+          <span class="font-bold text-gray-800 text-base leading-tight">${product.name}</span>
           <hr class="mt-4">
           <div class="flex items-center justify-between">
             <div class="text-sm text-gray-600 font-light">${product.extraInfo}</div>
