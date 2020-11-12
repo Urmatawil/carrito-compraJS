@@ -24,7 +24,7 @@ async function cargarProductos() {
     <div
       class="col-span-4 md:col-span-2 xl:col-span-1 flex flex-col items-center max-w-sm"
     >
-      <div class="bg-white rounded-xl mt-8 py-4 px-12 md:px-4  hover:shadow-xl w-full">
+      <div class="bg-white rounded-xl mt-8 py-4 px-8 sm:px-20 md:px-10  hover:shadow-xl w-full">
         <div>
         <img
           src="${product.image}"
@@ -69,3 +69,10 @@ function abrirCarrito() {
     }
   });
 }
+
+const boton = document.querySelector("#boton");
+const menu = document.querySelector("#menu");
+
+boton.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});

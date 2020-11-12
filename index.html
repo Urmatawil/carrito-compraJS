@@ -15,36 +15,46 @@
       crossorigin="anonymous"
     />
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"> 
+    <style type="text/css">
+      h1 {font-family: 'Parisienne', cursive;}
+      body{font-family: 'Lato', sans-serif;}
+      </style>
     <title>Tienda Online</title>
   </head>
   <!--Header-->
+
   <header>
     <div class="mr-0 top-0 max-w-full">
-      <div class="bg-orange-600 h-16">      
-        <nav class="flex items-center justify-between flex-wrap p-2 py-8 text-white">
-        <div class="w-full flex items-center justify-center">
-          <div class="absolute left-0 flex items-center">
-            <style type="text/css">
-              h1 {
-                font-family: 'Parisienne', cursive; }
-              body{
-                font-family: 'Lato', sans-serif;
-              }</style>
-            <h1 class="px-4 font-Caveat text-2xl md:text-3xl leading-tight">Delicias Arigato</h1>
+      <div class="fixed w-full flex items-center justify-between flex-wrap bg-red-700 p-6">     
+        
+
+          <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <span class="font-semibold text-xl tracking-tight">Carrito de Compra</span>
           </div>
 
-          <div class="absolute right-0 flex text-2xl">
-            <button class="xl:pr-16 sm:pr-10 pr-5 p-2" type="button" onclick="abrirCarrito()"
-              ><i class="fas fa-shopping-cart text-white"></i
-            ></button>
-            <div class="cart-products hidden w-full bg-white border h-24 absolute"></div>
-          </div>  
+          <div class="block">
+            <button
+              id="boton"
+              class="block text-gray-200 hover:text-white focus:text-white focus:outline-none"
+            >
+            <i class="fas fa-shopping-cart"></i
+                >
+            </button>
 
-        </div>
-      </nav>
-  </div>
+            <div id="menu" class="hidden absolute right-0 mt-2 h-64 w-48 bg-white text-gray-700 rounded overflow-hidden shadow-xl z-10">
+    
+              
+                  <div class="flex flex-col">
+        
+                      <span class="text-center my-24 text-gray-500 text-base">Carrito vacio</span>
+                    
+                  </div>
+              
+          </div>
+        </div>  
+    </div>
     <!--End menu--></div>
-      <div class="h-48">
+      <div class="h-64">
         <img
           class="h-full w-full object-cover object-center overflow-hidden"
           src="./img/normal.jpg"
@@ -55,7 +65,7 @@
   </header>
   <!--SearchBar-->
   <body class="bg-gray-200">
-    <nav class="bg-orange-400 p-2 shadow">
+    <nav class="bg-red-400 p-2 shadow">
     <div class="px-12 mb-4 sm:px-24 lg:px-32 xl:px-40 mx-auto">
         <div class="box mt-4">
           <div
@@ -79,7 +89,7 @@
       <div class="px-10 grid grid-cols-4 gap-4 mx-auto" id="productos"></div>
     </main>
     <!--footer-->
-    <div class="Footer">
+    <div class="Footer bg-green-500 text-white">
       <hr class="mt-12">
         <div class="flex mx-auto p-20 items-center justify-center">
 
