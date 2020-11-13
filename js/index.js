@@ -43,7 +43,7 @@ async function cargarProductos() {
             
             <div class="block inline-block text-lg text-red-600 font-bold">$ ${product.price}</div>
 
-            <button class="block inline-block flex mx-auto bg-transparent rounded-full hover:text-blue-600 text-blue-300"><i class="fas fa-plus-circle text-xl"></i></button>
+            <button id="btnCart" class="block inline-block flex mx-auto bg-transparent rounded-full hover:text-blue-600 text-blue-300"><i class="fas fa-plus-circle text-xl" onclick="addCart(${product.id})"></i></button>
           </div>
 
           
@@ -54,25 +54,64 @@ async function cargarProductos() {
   document.querySelector("#productos").innerHTML = html;
 }
 
-function abrirCarrito() {
-  const btnCarrito = document.getElementsByClassName("cart-products")[0];
-
-  btnCarrito.classList.forEach((item) => {
-    if (item === "hidden") {
-      btnCarrito.classList.remove("hidden");
-      btnCarrito.classList.add("block");
-    } else {
-      if (item === "block") {
-        btnCarrito.classList.remove("block");
-        btnCarrito.classList.add("hidden");
-      }
-    }
-  });
-}
+/*------ Menu -------------*/
 
 const boton = document.querySelector("#boton");
 const menu = document.querySelector("#menu");
+const btnCart = document.querySelector("#btnCart");
 
 boton.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
+
+/*-------- LocalStorage----------*/
+
+const CART = "ProdID";
+function addCart(idProd) {
+  let arrProdID = [];
+
+  let localStorageItems = localStorage.getItem(CART);
+
+  if (!localStorageItems) {
+    arrProdID.push(idProd);
+    localStorage.setItem(CART, arrProdID);
+  } else {
+    let ProdSt = localStorage.getItem(CART);
+    ProdSt.length > 0
+      ? ((ProdSt += `,${idProd}`), console.log(ProdSt))
+      : (ProdSt = ProdSt);
+    localStorage.setItem(CART, ProdSt);
+  }
+  agreProdCarrito();
+}
+/*-------------------------------*/
+
+async function agreProdCarrito() {
+  const products = await obtenerProductos();
+
+  /*---convertimos el LS en un array--*/
+  const itemsLS = localStorage.getItem(CART);
+
+  const splitItems = itemsLS.split(",");
+  const productsAddCart = Array.from(new Set(splitItems));
+  console.log(productsAddCart);
+
+  let html = "";
+  productsAddCart.forEach((id) => {
+    products.forEach((prod) => {
+      id == prod.id
+        ? (html += `
+      <div class="Cart-prod p-4">
+        <img class="h-10 w-10 rounded-full p-1" src="${prod.image}">
+        <span class="text-xs">${prod.name}</span>
+        <p class="text-xs">${prod.price}</p>
+        <hr>
+      </div>
+      `)
+        : null;
+    });
+  });
+
+  const menu = (document.querySelector("#menu").innerHTML = html);
+  console.log(menu);
+}

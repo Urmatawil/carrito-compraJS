@@ -16,7 +16,7 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"> 
     <style type="text/css">
-      h1 {font-family: 'Parisienne', cursive;}
+      #logo {font-family: 'Parisienne', cursive;}
       body{font-family: 'Lato', sans-serif;}
       </style>
     <title>Tienda Online</title>
@@ -26,31 +26,26 @@
   <header>
     <div class="mr-0 top-0 max-w-full">
       <div class="fixed w-full flex items-center justify-between flex-wrap bg-red-700 p-6">     
-        
 
-          <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <span class="font-semibold text-xl tracking-tight">Carrito de Compra</span>
+          <div class="flex items-center flex-shrink-0 text-white">
+            <span id="logo" class="font-semibold text-2xl tracking-tight">Delicias Arigato</span>
           </div>
-
+          <!--Button-->
           <div class="block">
             <button
               id="boton"
               class="block text-gray-200 hover:text-white focus:text-white focus:outline-none"
             >
-            <i class="fas fa-shopping-cart"></i
+            <i class="fas fa-shopping-cart text-2xl"></i
                 >
             </button>
 
-            <div id="menu" class="hidden absolute right-0 mt-2 h-64 w-48 bg-white text-gray-700 rounded overflow-hidden shadow-xl z-10">
-    
+            <div id="menu" class="hidden absolute right-0 mt-2 h-10/12 w-64 bg-white text-gray-700 rounded overflow-hidden shadow-xl z-10">
               
                   <div class="flex flex-col">
-        
-                      <span class="text-center my-24 text-gray-500 text-base">Carrito vacio</span>
-                    
-                  </div>
-              
-          </div>
+                    <span class="text-center my-24 text-gray-500 text-base">Carrito vacio</span>
+                  </div>           
+              </div>
         </div>  
     </div>
     <!--End menu--></div>
@@ -63,6 +58,7 @@
       </div>
     </div>
   </header>
+
   <!--SearchBar-->
   <body class="bg-gray-200">
     <nav class="bg-red-400 p-2 shadow">
@@ -84,10 +80,13 @@
         </div>
       </div>
       <!--End SearchBar-->
+
+      <!--Products-->
     </nav>
     <main class="w-full overflow-y-auto flex">
       <div class="px-10 grid grid-cols-4 gap-4 mx-auto" id="productos"></div>
     </main>
+
     <!--footer-->
     <div class="Footer bg-green-500 text-white">
       <hr class="mt-12">
