@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => cargarProductos());
+document.addEventListener("DOMContentLoaded", () => {
+  cargarProductos();
+  agreProdCarrito();
+});
 
 function obtenerProductos() {
   const url = "../dbProd.json";
@@ -43,7 +46,7 @@ async function cargarProductos() {
             
             <div class="block inline-block text-lg text-red-600 font-bold">$ ${product.price}</div>
 
-            <button id="btnCart" class="block inline-block flex mx-auto bg-transparent rounded-full hover:text-blue-600 text-blue-300"><i class="fas fa-plus-circle text-xl" onclick="addCart(${product.id})"></i></button>
+            <button id="btnCart" class="block inline-block flex mx-auto bg-transparent rounded-full hover:text-green-700 text-green-500"><i class="fas fa-plus-circle text-xl" onclick="addCart(${product.id})"></i></button>
           </div>
 
           
@@ -77,9 +80,7 @@ function addCart(idProd) {
     localStorage.setItem(CART, arrProdID);
   } else {
     let ProdSt = localStorage.getItem(CART);
-    ProdSt.length > 0
-      ? ((ProdSt += `,${idProd}`), console.log(ProdSt))
-      : (ProdSt = ProdSt);
+    ProdSt.length > 0 ? (ProdSt += `,${idProd}`) : (ProdSt = ProdSt);
     localStorage.setItem(CART, ProdSt);
   }
   agreProdCarrito();
@@ -92,26 +93,51 @@ async function agreProdCarrito() {
   /*---convertimos el LS en un array--*/
   const itemsLS = localStorage.getItem(CART);
 
-  const splitItems = itemsLS.split(",");
-  const productsAddCart = Array.from(new Set(splitItems));
-  console.log(productsAddCart);
+  if (itemsLS) {
+    const splitItems = itemsLS.split(",");
+    //eliminamos los duplicados
+    const productsAddCart = Array.from(new Set(splitItems));
 
-  let html = "";
-  productsAddCart.forEach((id) => {
-    products.forEach((prod) => {
-      id == prod.id
-        ? (html += `
-      <div class="Cart-prod p-4">
-        <img class="h-10 w-10 rounded-full p-1" src="${prod.image}">
+    let html = "";
+    productsAddCart.forEach((id) => {
+      products.forEach((prod) => {
+        if (id == prod.id) {
+          let cantidad = contadorID(id, splitItems);
+          html += `
+      <div class="Cart-prod p-1 ml-1 flex ">
+        <img class="h-10 w-10 rounded-full w-1/4 mt-6 mr-2" src="${prod.image}">
+        <div>
         <span class="text-xs">${prod.name}</span>
-        <p class="text-xs">${prod.price}</p>
+        <p class="text-xs text-red-500">Total: ${prod.price * cantidad}</p>
+        <div class="flex inline-flex space-x-2">
+        <p class="text-xs">Cantidad: ${cantidad}</p>
+        <button class="text-sm hover:text-red-700 text-red-500"><i class="fas fa-minus-circle"></i></button>
+        <button class="text-sm hover:text-green-700 text-green-500" onclick="btnMas(${
+          prod.id
+        })"><i class="fas fa-plus-circle"></i></button>
+        </div>
         <hr>
+        </div>
       </div>
-      `)
-        : null;
+      `;
+        }
+      });
     });
-  });
 
-  const menu = (document.querySelector("#menu").innerHTML = html);
-  console.log(menu);
+    const menu = (document.querySelector("#menu").innerHTML = html);
+  }
 }
+
+const contadorID = (valor, arrID) => {
+  let contador = "";
+  arrID.forEach((id) => {
+    if (valor == id) {
+      contador++;
+    }
+  });
+  return contador;
+};
+
+const btnMas = () => console.log("Mas");
+
+const btnMenos = () => console.log("Menos");
