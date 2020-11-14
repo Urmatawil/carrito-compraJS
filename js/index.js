@@ -107,7 +107,10 @@ async function agreProdCarrito() {
       <div class="Cart-prod p-1 ml-1 flex ">
         <img class="h-10 w-10 rounded-full w-1/4 mt-6 mr-2" src="${prod.image}">
         <div>
+        <div class="flex inline-flex space-x-2">
         <span class="text-xs">${prod.name}</span>
+        <button class="text-sm hover:text-red-700 text-red-500"><i class="fas fa-times-circle"></i></button>
+        </div>
         <p class="text-xs text-red-500">Total: ${prod.price * cantidad}</p>
         <div class="flex inline-flex space-x-2">
         <p class="text-xs">Cantidad: ${cantidad}</p>
