@@ -105,7 +105,7 @@ async function agreProdCarrito() {
           let cantidad = contadorID(id, splitItems);
           html += `
       <div class="Cart-prod p-1 ml-1 flex ">
-        <img class="h-10 w-10 rounded-full w-1/4 mt-6 mr-2" src="${prod.image}">
+        <img class="h-10 w-10 rounded-full w-6 mt-6 mr-2" src="${prod.image}">
         <div>
         <div class="flex inline-flex space-x-2">
         <span class="text-xs">${prod.name}</span>
